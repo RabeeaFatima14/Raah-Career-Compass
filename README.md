@@ -5,6 +5,8 @@
 
 Raah (راہ, meaning *"path"* in Urdu) is a conversational AI career companion that helps young Pakistanis discover their ideal career path — tailored to their personality, academic strengths, city, and family background.
 
+🔗 Live demo: https://urban-dollop-v6jv499v7qp62w4q9-3000.app.github.dev/
+
 ---
 
 ## ✨ Features
@@ -58,7 +60,7 @@ raah-career-compass/
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/YOUR_USERNAME/raah-career-compass.git
+git clone https://github.com/RabeeaFatima14/Raah-Career-Compass.git
 cd raah-career-compass
 ```
 
@@ -119,7 +121,11 @@ npm run dev
 
 ### 5. Access the App
 
-Once both servers are running, open your browser and navigate to:
+For the hackathon demo, visit the live deployment:
+
+- **Live Demo**: https://urban-dollop-v6jv499v7qp62w4q9-3000.app.github.dev/
+
+For local development, open your browser and navigate to:
 
 - **Frontend**: http://localhost:3000
 - **Backend API**: http://localhost:8000
@@ -145,6 +151,10 @@ FRONTEND_URL=https://your-deployed-frontend.com  # Optional (production CORS)
 ```env
 VITE_API_URL=http://localhost:8000   # Change to your deployed backend URL in production
 ```
+
+For the current hackathon deployment, the public frontend is available at:
+
+`https://urban-dollop-v6jv499v7qp62w4q9-3000.app.github.dev/`
 
 ---
 
