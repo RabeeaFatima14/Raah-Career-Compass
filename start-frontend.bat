@@ -1,15 +1,22 @@
 @echo off
+REM Raah Career Compass - Frontend Starter (Windows)
+
 title Raah Career Compass - Frontend
-echo ============================================
+color 0A
+cls
+
+echo ==========================================
 echo   Raah Career Compass - Frontend Server
-echo ============================================
+echo ==========================================
 echo.
-echo Starting frontend on http://localhost:3000 ...
+echo Starting frontend on http://localhost:3000
 echo Keep this window open while using the app.
 echo.
+echo Note: Make sure the backend is running first!
+echo ==========================================
+echo.
 
-set "PATH=C:\Users\Hp\raah-career-compass\nodejs;%PATH%"
-cd /d "C:\Users\Hp\raah-career-compass\frontend"
-npm.cmd run dev
+cd /d "%CD%\frontend"
+npm run dev
 
 pause
