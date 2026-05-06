@@ -399,6 +399,191 @@ export default function Roadmap() {
               ))}
             </div>
           )}
+
+          {/* ── Pakistan Government & Economic Outlook ── */}
+          {path.pakistan_gov_trend && (
+            <div className="card" style={{ marginBottom: '20px', borderColor: 'rgba(244,200,66,0.25)' }}>
+              <h3 style={{ fontSize: '20px', marginBottom: '18px', display: 'flex', alignItems: 'center', gap: '10px' }}>
+                🏛️ Pakistan Government & Economic Outlook
+              </h3>
+
+              {/* Hiring Trend Badge */}
+              <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '16px', flexWrap: 'wrap' }}>
+                <span style={{
+                  padding: '6px 16px', borderRadius: '100px', fontWeight: 700, fontSize: '13px',
+                  background: path.pakistan_gov_trend.hiring_trend === 'growing'
+                    ? 'rgba(74,222,128,0.12)' : path.pakistan_gov_trend.hiring_trend === 'stable'
+                    ? 'rgba(96,165,250,0.12)' : 'rgba(255,101,132,0.12)',
+                  color: path.pakistan_gov_trend.hiring_trend === 'growing'
+                    ? 'var(--safe)' : path.pakistan_gov_trend.hiring_trend === 'stable'
+                    ? 'var(--growth)' : 'var(--accent2)',
+                  border: `1px solid ${ path.pakistan_gov_trend.hiring_trend === 'growing'
+                    ? 'rgba(74,222,128,0.3)' : path.pakistan_gov_trend.hiring_trend === 'stable'
+                    ? 'rgba(96,165,250,0.3)' : 'rgba(255,101,132,0.3)'}`,
+                  textTransform: 'uppercase', letterSpacing: '1px'
+                }}>
+                  {path.pakistan_gov_trend.hiring_trend === 'growing' ? '📈' :
+                   path.pakistan_gov_trend.hiring_trend === 'stable' ? '📊' : '📉'} Sector {path.pakistan_gov_trend.hiring_trend}
+                </span>
+                {path.pakistan_gov_trend.key_ministry_body && (
+                  <span style={{
+                    padding: '6px 14px', borderRadius: '100px', fontSize: '12px',
+                    background: 'rgba(108,99,255,0.1)', color: 'var(--accent)',
+                    border: '1px solid rgba(108,99,255,0.2)'
+                  }}>
+                    🏢 {path.pakistan_gov_trend.key_ministry_body}
+                  </span>
+                )}
+              </div>
+
+              {/* Gov Focus */}
+              {path.pakistan_gov_trend.government_focus && (
+                <div style={{
+                  padding: '14px 16px', background: 'rgba(244,200,66,0.05)',
+                  border: '1px solid rgba(244,200,66,0.15)', borderRadius: '10px',
+                  marginBottom: '10px', fontSize: '14px', lineHeight: 1.65
+                }}>
+                  <div style={{ fontWeight: 700, color: 'var(--gold)', marginBottom: '6px', fontSize: '12px', textTransform: 'uppercase', letterSpacing: '1px' }}>🇵🇰 Government Focus</div>
+                  <div style={{ color: 'var(--text-soft)' }}>{path.pakistan_gov_trend.government_focus}</div>
+                </div>
+              )}
+
+              {/* CPEC */}
+              {path.pakistan_gov_trend.cpec_relevance && (
+                <div style={{
+                  padding: '14px 16px', background: 'rgba(0,212,170,0.05)',
+                  border: '1px solid rgba(0,212,170,0.15)', borderRadius: '10px',
+                  marginBottom: '10px', fontSize: '14px', lineHeight: 1.65
+                }}>
+                  <div style={{ fontWeight: 700, color: 'var(--accent3)', marginBottom: '6px', fontSize: '12px', textTransform: 'uppercase', letterSpacing: '1px' }}>🛣️ CPEC Relevance</div>
+                  <div style={{ color: 'var(--text-soft)' }}>{path.pakistan_gov_trend.cpec_relevance}</div>
+                </div>
+              )}
+
+              {/* Economic Outlook + Salary Impact */}
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px' }}>
+                {path.pakistan_gov_trend.economic_outlook && (
+                  <div style={{
+                    padding: '14px 16px', background: 'var(--surface2)',
+                    borderRadius: '10px', fontSize: '13px', lineHeight: 1.6
+                  }}>
+                    <div style={{ fontWeight: 700, color: 'var(--text-muted)', marginBottom: '6px', fontSize: '11px', textTransform: 'uppercase', letterSpacing: '1px' }}>📉 Economic Reality</div>
+                    <div style={{ color: 'var(--text-soft)' }}>{path.pakistan_gov_trend.economic_outlook}</div>
+                  </div>
+                )}
+                {path.pakistan_gov_trend.salary_impact && (
+                  <div style={{
+                    padding: '14px 16px', background: 'var(--surface2)',
+                    borderRadius: '10px', fontSize: '13px', lineHeight: 1.6
+                  }}>
+                    <div style={{ fontWeight: 700, color: 'var(--text-muted)', marginBottom: '6px', fontSize: '11px', textTransform: 'uppercase', letterSpacing: '1px' }}>💰 Pay Reality</div>
+                    <div style={{ color: 'var(--text-soft)' }}>{path.pakistan_gov_trend.salary_impact}</div>
+                  </div>
+                )}
+              </div>
+            </div>
+          )}
+
+          {/* ── YouTube Channels ── */}
+          {path.youtube_channels?.length > 0 && (
+            <div className="card" style={{ marginBottom: '20px', borderColor: 'rgba(255,101,132,0.2)' }}>
+              <h3 style={{ fontSize: '20px', marginBottom: '6px', display: 'flex', alignItems: 'center', gap: '10px' }}>
+                📺 Top YouTube Channels for Your Program
+              </h3>
+              <p style={{ fontSize: '13px', color: 'var(--text-muted)', marginBottom: '18px' }}>
+                Channels popular among Pakistani university students in this field
+              </p>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                {path.youtube_channels.map((ch, i) => (
+                  <div key={i} style={{
+                    padding: '16px', background: 'var(--surface2)', borderRadius: '12px',
+                    borderLeft: '3px solid var(--accent2)', display: 'flex',
+                    flexDirection: 'column', gap: '8px'
+                  }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '8px' }}>
+                      <div style={{ fontWeight: 700, fontSize: '15px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                        ▶️ {ch.channel_name}
+                      </div>
+                      <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap' }}>
+                        <span style={{
+                          padding: '3px 10px', borderRadius: '6px', fontSize: '11px', fontWeight: 600,
+                          background: ch.language === 'Urdu' ? 'rgba(244,200,66,0.15)' :
+                            ch.language === 'Bilingual' ? 'rgba(0,212,170,0.12)' : 'rgba(108,99,255,0.12)',
+                          color: ch.language === 'Urdu' ? 'var(--gold)' :
+                            ch.language === 'Bilingual' ? 'var(--accent3)' : 'var(--accent)'
+                        }}>{ch.language}</span>
+                        <span style={{
+                          padding: '3px 10px', borderRadius: '6px', fontSize: '11px', fontWeight: 600,
+                          background: 'var(--surface3)', color: 'var(--text-muted)'
+                        }}>{ch.level}</span>
+                      </div>
+                    </div>
+                    {ch.what_to_watch_first && (
+                      <div style={{ fontSize: '13px', color: 'var(--accent)', display: 'flex', gap: '6px' }}>
+                        <span style={{ flexShrink: 0 }}>🎯 Start with:</span>
+                        <span style={{ fontStyle: 'italic' }}>{ch.what_to_watch_first}</span>
+                      </div>
+                    )}
+                    {ch.why_popular && (
+                      <div style={{ fontSize: '13px', color: 'var(--text-muted)', lineHeight: 1.5 }}>{ch.why_popular}</div>
+                    )}
+                    {ch.channel_url && (
+                      <a href={ch.channel_url} target="_blank" rel="noreferrer" style={{
+                        display: 'inline-flex', alignItems: 'center', gap: '6px',
+                        fontSize: '12px', color: 'var(--accent2)', textDecoration: 'none',
+                        marginTop: '2px', width: 'fit-content'
+                      }}>
+                        🔗 Open Channel ↗
+                      </a>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* ── First Step Exploration Guide ── */}
+          {path.first_step_exploration && (
+            <div style={{
+              marginBottom: '20px',
+              background: 'linear-gradient(135deg, rgba(108,99,255,0.07), rgba(0,212,170,0.07))',
+              border: '1px solid rgba(108,99,255,0.25)', borderRadius: '16px', padding: '24px'
+            }}>
+              <h3 style={{ fontSize: '20px', marginBottom: '6px', display: 'flex', alignItems: 'center', gap: '10px' }}>
+                🚀 Your First Step — Start Exploring Today
+              </h3>
+              <p style={{ fontSize: '13px', color: 'var(--text-muted)', marginBottom: '20px' }}>
+                Exactly what to do this week to discover if this path is right for you
+              </p>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '12px' }}>
+                {[
+                  { key: 'open_right_now', icon: '🌐', label: 'Open Right Now', color: 'var(--accent)' },
+                  { key: 'watch_first', icon: '▶️', label: 'Watch First', color: 'var(--accent2)' },
+                  { key: 'join_community', icon: '👥', label: 'Join a Community', color: 'var(--accent3)' },
+                  { key: 'offline_action', icon: '📍', label: 'Offline Action', color: 'var(--gold)' },
+                  { key: 'free_skill_to_practice', icon: '🛠️', label: 'Practice for Free', color: 'var(--safe)' },
+                  { key: 'how_to_verify_fit', icon: '🔍', label: 'Verify It Fits You', color: 'var(--growth)' },
+                ].map(({ key, icon, label, color }) => path.first_step_exploration[key] && (
+                  <div key={key} style={{
+                    padding: '16px', background: 'var(--surface)',
+                    border: `1px solid ${color}25`, borderRadius: '12px',
+                    borderLeft: `3px solid ${color}`
+                  }}>
+                    <div style={{
+                      fontSize: '11px', fontWeight: 700, color,
+                      textTransform: 'uppercase', letterSpacing: '1px',
+                      marginBottom: '8px', display: 'flex', alignItems: 'center', gap: '6px'
+                    }}>
+                      {icon} {label}
+                    </div>
+                    <div style={{ fontSize: '13px', color: 'var(--text-soft)', lineHeight: 1.6 }}>
+                      {path.first_step_exploration[key]}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
       )}
 

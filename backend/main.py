@@ -170,7 +170,7 @@ MBTI_TO_ENNEAGRAM = {
 async def health():
     return {
         "status": "healthy",
-        "ai_available": model is not None,
+        "ai_available": gemini_client is not None,
         "firebase_connected": db is not None,
         "version": "1.0.0"
     }
