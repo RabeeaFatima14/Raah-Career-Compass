@@ -7,5 +7,13 @@ export default defineConfig({
     port: 3000,
     host: true, // Listen on all interfaces (0.0.0.0)
     strictPort: false, // Use next available port if 3000 is taken
+    proxy: {
+      '/api': {
+        target: 'http://127.0.0.1:8000',
+        changeOrigin: true,
+        secure: false,
+        rewrite: (path) => path.replace(/^\/api/, ''),
+      },
+    },
   }
 })
